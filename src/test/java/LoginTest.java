@@ -13,6 +13,7 @@ public class LoginTest {
 
         String title = driver.getTitle();
         System.out.println("Title: " + title);
+        System.out.println("change test");
 
         Assert.assertTrue(title.contains("Google"));
 
