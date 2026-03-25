@@ -2,10 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Build & Test') {
-            steps {
-                bat 'mvn clean test'
+
+        stage('Parallel Tests') {
+            parallel {
+
+                stage('Login Test') {
+                    steps {
+                        bat 'mvn -Dtest=LoginTest test'
+                    }
+                }
+
+                stage('Another Test') {
+                    steps {
+                        bat 'mvn -Dtest=AnotherTest test'
+                    }
+                }
+
             }
         }
+
     }
 }
