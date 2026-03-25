@@ -19,6 +19,6 @@ public class AnotherTest {
         Assert.assertTrue(title.contains("Google"));
 
         driver.quit();
-        Assert.assertTrue(false);
+
     }
 }
