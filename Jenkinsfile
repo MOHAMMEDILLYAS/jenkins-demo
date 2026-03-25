@@ -1,23 +1,15 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'TEST_NAME', defaultValue: 'LoginTest')
+    }
+
     stages {
 
-        stage('Parallel Tests') {
-            parallel {
-
-                stage('Login Test') {
-                    steps {
-                        bat 'mvn -Dtest=LoginTest test'
-                    }
-                }
-
-                stage('Another Test') {
-                    steps {
-                        bat 'mvn -Dtest=AnotherTest test'
-                    }
-                }
-
+        stage('Run Selected Test') {
+            steps {
+                bat "mvn -Dtest=%TEST_NAME% test"
             }
         }
 
