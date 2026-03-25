@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 public class LoginTest {
 
     @Test
-    public void testGoogleTitle() {
-
+    public void testGoogleTitle() throws InterruptedException {
+        System.out.println("Running LoginTest...");
+        Thread.sleep(3000);
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com");
 
